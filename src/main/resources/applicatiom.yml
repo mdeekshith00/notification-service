@@ -1,12 +1,23 @@
 spring:
   application:
     name: notification-service
+kafka:
+ bootstrap-servers: localhost:9092
+consumer:
+ group-id: bloodbank
+ auto-offset-reset: earliest
+ key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+ value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+producer:
+ key-serializer: org.apache.kafka.common.serialization.StringSerializer
+ value-serializer: org.apache.kafka.common.serialization.StringSerializer
+# email credetainals
+mail:
+     host: smtp-relay.brevo.com
+     port: 587
+     username: notification-service
+     password: xsmtpsib-7a81489d518aa99bd31b9d-CNiuW1eGGlbV6CKb
+     properties:
+       mail.smtp.auth: true
+       mail.smtp.starttls.enable: true
 
-  kafka:
-    bootstrap-servers: localhost:9092
-
-    consumer:
-      group-id: notification-service-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

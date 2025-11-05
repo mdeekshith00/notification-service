@@ -14,7 +14,7 @@ public class KafkaConsumer {
 
 	private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @KafkaListener(topics = "user-events", groupId = "notification-service-group")
+    @KafkaListener(topics = "user-events", groupId = "bloodbank")
     public void consume(String message) {
         try {
             UserEvent event = objectMapper.readValue(message, UserEvent.class);
