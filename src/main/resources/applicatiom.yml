@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: notification-service
+kafka:
+ bootstrap-servers: localhost:9092
+consumer:
+ group-id: bloodbank
+ auto-offset-reset: earliest
+ key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+ value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+producer:
+ key-serializer: org.apache.kafka.common.serialization.StringSerializer
+ value-serializer: org.apache.kafka.common.serialization.StringSerializer
+# email credetainals
+ mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: reddymanadadideekshith@gmail.com
+    password: xsmtpsib--CNiuW1eGGlbV6CKb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jpa:
+ hibernate:
+ ddl-auto: update     # ✅ let Flyway handle schema, just validate on app startup
+
+show-sql: false
+properties:
+hibernate:
+format_sql: true
+dialect: org.hibernate.dialect.PostgreSQLDialect
+
